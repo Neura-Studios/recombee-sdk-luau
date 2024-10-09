@@ -1,4 +1,4 @@
-# Recombee SDK for Luau
+# Recombee SDK for Luau / Roblox
 
 This library provides convenient access to the [Recombee](https://www.recombee.com) recommendation engine's API from your Luau scripts or Roblox games.
 
