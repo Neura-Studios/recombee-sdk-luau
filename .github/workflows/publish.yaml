@@ -24,5 +24,10 @@ jobs:
         with:
           generate_release_notes: true
 
+      - name: Setup Aftman tools
+        uses: ok-nick/setup-aftman@v0.4.2
+        with:
+          cache: true
+
       - name: Upload to Wally
         run: wally publish
