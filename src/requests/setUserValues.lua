@@ -1,7 +1,6 @@
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local enqueueRequest = require(script.Parent.Parent.dispatcher).enqueueRequest
 local Types = require(script.Parent.Parent.types)
-local gt = require(ReplicatedStorage.Packages.gt)
+local gt = require(script.Parent.Parent.Parent.gt)
 
 local StringKeyMapType = Types.StringKeyMap
 local UserIdType = Types.UserId

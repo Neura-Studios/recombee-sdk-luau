@@ -1,6 +1,5 @@
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local sendRequest = require(script.Parent.Parent.dispatcher).sendRequest
-local gt = require(ReplicatedStorage.Packages.gt)
+local gt = require(script.Parent.Parent.Parent.gt)
 local Types = require(script.Parent.Parent.types)
 
 local SearchItemsRequestType = gt.build(gt.table({

@@ -26,7 +26,8 @@ jobs:
         run: chmod +x ./scripts/install-packages.sh && sh ./scripts/install-packages.sh
 
       - name: Run Selene
-        run: selene src/
+        run: |
+          selene src/
 
       - name: Run Luau LSP
         run: luau-lsp analyze src/

@@ -1,7 +1,6 @@
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local sendRequest = require(script.Parent.Parent.dispatcher).sendRequest
 local Immutable = require(script.Parent.Parent.Vendor.Immutable)
-local gt = require(ReplicatedStorage.Packages.gt)
+local gt = require(script.Parent.Parent.Parent.gt)
 local Types = require(script.Parent.Parent.types)
 
 local RecommendNextItemsRequestType = gt.build(gt.table({
