@@ -1,13 +1,13 @@
 [package]
-name = "neura-studios/recombee-lua-sdk"
+name = "neura-studios/recombee-luau-sdk"
 description = "A Luau SDK for use with the Recombee recommendation engine."
-version = "1.0.0"
+version = "1.0.3"
 license = "MIT"
 authors = ["Juniper Hovey"]
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
 exclude = ["**"]
-include = ["src", "src/*", "default.project.json", "wally.lock", "wally.toml"]
+include = ["src", "src/*", "vendor", "vendor/**", "default.project.json", "wally.lock", "wally.toml"]
 
 [dependencies]
 gt = "corecii/greentea@0.4.7"

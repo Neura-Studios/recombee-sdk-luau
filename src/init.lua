@@ -1,5 +1,9 @@
 -- Package by Juniper Hovey (EncodedLua) @ Neura Studios 2024 --
 
+if not game:GetService("RunService"):IsServer() then
+	error(`This module can only be used on the server`)
+end
+
 local requests = script.requests
 
 require(script.dispatcher)
