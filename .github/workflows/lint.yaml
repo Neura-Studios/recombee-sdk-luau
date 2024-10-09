@@ -23,7 +23,7 @@ jobs:
           cache: true
 
       - name: Install Wally packages
-        run: ./scripts/install-packages.sh
+        run: chmod +x ./scripts/install-packages.sh && sh ./scripts/install-packages.sh
 
       - name: Run Selene
         run: selene src/
@@ -46,7 +46,7 @@ jobs:
           cache: true
 
       - name: Install Wally packages
-        run: ./scripts/install-packages.sh
+        run: chmod +x ./scripts/install-packages.sh && sh ./scripts/install-packages.sh
 
       - name: Format Luau code
         run: stylua src/
