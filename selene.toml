@@ -1,4 +1,4 @@
-std = "selene-definitions"
+std = "roblox"
 
 [rules]
 shadowing = "allow"
