@@ -1,6 +1,9 @@
 {
 	"name": "recombee-luau-sdk",
 	"tree": {
-		"$path": "src"
+		"$path": "src",
+		"Vendor": {
+			"$path": "vendor"
+		}
 	}
 }

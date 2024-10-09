@@ -6,7 +6,10 @@
 			"Packages": {
 				"$path": "Packages",
 				"Recombee": {
-					"$path": "src"
+					"$path": "src",
+					"Vendor": {
+						"$path": "vendor"
+					}
 				}
 			}
 		}

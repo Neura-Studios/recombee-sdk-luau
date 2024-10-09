@@ -1,5 +1,5 @@
 -- Package by Juniper Hovey (EncodedLua) @ Neura Studios 2024 --
--- GreenTea by Shae (corecii) 2024 --
+
 local requests = script.requests
 
 require(script.dispatcher)

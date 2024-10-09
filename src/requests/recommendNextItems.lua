@@ -1,6 +1,6 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local sendRequest = require(script.Parent.Parent.dispatcher).sendRequest
-local Immutable = require(script.Parent.Parent.Immutable)
+local Immutable = require(script.Parent.Parent.Vendor.Immutable)
 local gt = require(ReplicatedStorage.Packages.gt)
 local Types = require(script.Parent.Parent.types)
 

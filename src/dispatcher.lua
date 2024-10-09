@@ -1,11 +1,11 @@
 local HttpService = game:GetService("HttpService")
-local SafeRetry = require(script.Parent.SafeRetry)
+local SafeRetry = require(script.Parent.Vendor.SafeRetry)
+local Immutable = require(script.Parent.Vendor.Immutable)
 local Types = require(script.Parent.types)
 local credentials = require(script.Parent.credentials)
 local Signal = require(script.Parent.Parent.Signal)
 local HashLib = require(script.Parent.Parent.HashLib)
 local logger = require(script.Parent.logger)
-local Immutable = require(script.Parent.Immutable)
 
 local DISPATCH_INTERVAL_SECONDS = 1
 local MAXIMUM_ENQUEUED_REQUEST_EXECUTION_COUNT = 10
