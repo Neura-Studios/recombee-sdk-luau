@@ -1,0 +1,14 @@
+{
+	"name": "recombee-lua-sdk",
+	"tree": {
+		"$className": "DataModel",
+		"ReplicatedStorage": {
+			"Packages": {
+				"$path": "Packages",
+				"Recombee": {
+					"$path": "src"
+				}
+			}
+		}
+	}
+}

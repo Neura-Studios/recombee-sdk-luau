@@ -1,0 +1,7 @@
+std = "selene-definitions"
+
+[rules]
+shadowing = "allow"
+global_usage = "allow"
+
+[config]

@@ -1,0 +1,6 @@
+{
+  "name": "recombee-lua-sdk",
+  "tree": {
+    "$path": "src"
+  }
+}
