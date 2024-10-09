@@ -1,6 +1,5 @@
 local DataStoreService = game:GetService("DataStoreService")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local SafeRetry = require(ReplicatedStorage.Project.SafeRetry)
+local SafeRetry = require(script.Parent.SafeRetry)
 local logger = require(script.Parent.logger)
 
 local CREDENTIALS_REFRESH_INTERVAL_SECONDS = 60

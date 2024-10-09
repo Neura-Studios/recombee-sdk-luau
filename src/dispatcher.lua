@@ -88,7 +88,7 @@ local function sendRequest(request: RecombeeRequest)
 	local url = BASE_URL .. requestPath
 	logger.info(`sending request {request.method} {url} with body:`, requestBody)
 	return SafeRetry(function()
-		local response = Analytics.requestAsync({
+		local response = HttpService:RequestAsync({
 			Url = url,
 			Method = request.method,
 			Headers = {
@@ -171,7 +171,7 @@ local function dispatchRequests()
 	-- Send request --
 	local batchPayload = {}
 	for index, request in requestsToDispatch do
-		local params = Immutable.merge(request.body or {}, request.params or {})
+		local params = Immutable.merge(request.body or {}, request.params or {}) :: any
 		if next(params) == nil then
 			params = nil
 		end
