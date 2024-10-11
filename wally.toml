@@ -1,7 +1,7 @@
 [package]
 name = "neura-studios/recombee-luau-sdk"
 description = "A Luau SDK for use with the Recombee recommendation engine."
-version = "1.0.5"
+version = "1.1.0"
 license = "MIT"
 authors = ["Juniper Hovey"]
 registry = "https://github.com/UpliftGames/wally-index"
