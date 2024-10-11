@@ -16,6 +16,7 @@ return {
 	DeleteBookmark = require(requests.deleteBookmark),
 	DeleteItem = require(requests.deleteItem),
 	DeleteRating = require(requests.deleteRating),
+	GetItemValues = require(requests.getItemValues),
 	ListUsers = require(requests.listUsers),
 	RecommendItemsToItem = require(requests.recommendItemsToItem),
 	RecommendItemsToUser = require(requests.recommendItemsToUser),
