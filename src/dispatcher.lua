@@ -219,14 +219,11 @@ local function dispatchRequests()
 		local response = response.Body[index] or {}
 		local responseCode = response.code or -1337
 		local isOk = responseCode >= 200 and responseCode <= 399
-		local isResponseJson, errOrJson = pcall(function()
-			return HttpService:JSONDecode(response.json)
-		end)
 
 		pendingRequest.responseReceivedSignal:Fire({
 			Success = isOk,
 			StatusCode = responseCode,
-			Body = if isOk and isResponseJson then errOrJson else response,
+			Body = if isOk and response.json then response.json else response,
 		})
 	end
 
