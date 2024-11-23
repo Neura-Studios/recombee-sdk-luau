@@ -72,9 +72,7 @@ local function sendRequest(request: RecombeeRequest)
 	end
 
 	for paramName, paramValue in params do
-		requestPath ..= useQueryPrefixChar() .. `{paramName}={HttpService:UrlEncode(
-			tostring(paramValue)
-		)}`
+		requestPath ..= useQueryPrefixChar() .. `{paramName}={HttpService:UrlEncode(tostring(paramValue))}`
 	end
 
 	-- Append signature to query params --
@@ -123,9 +121,7 @@ local function enqueueRequest(request: RecombeeRequest)
 
 	if not response.Success and not IGNORE_ERROR_CODES[`{request.name}:{response.StatusCode}`] then
 		logger.warn(
-			`HTTP {response.StatusCode} error for {request.name} request: {HttpService:JSONEncode(
-				response.Body
-			)}`
+			`HTTP {response.StatusCode} error for {request.name} request: {HttpService:JSONEncode(response.Body)}`
 		)
 	end
 
@@ -195,18 +191,12 @@ local function dispatchRequests()
 
 	-- If request fails, put requests back into queue --
 	if response == SafeRetry.Fail then
-		logger.warn(
-			`failed to send batch request containing {#requestsToDispatch} requests:`,
-			recombeeError
-		)
+		logger.warn(`failed to send batch request containing {#requestsToDispatch} requests:`, recombeeError)
 		unflushQueue()
 		dispatchJobsActive -= 1
 		return
 	elseif response.StatusCode ~= 200 then
-		logger.warn(
-			`HTTP error sending batch request containing {#requestsToDispatch} requests:`,
-			response.Body
-		)
+		logger.warn(`HTTP error sending batch request containing {#requestsToDispatch} requests:`, response.Body)
 		unflushQueue()
 		dispatchJobsActive -= 1
 		return
@@ -219,11 +209,18 @@ local function dispatchRequests()
 		local response = response.Body[index] or {}
 		local responseCode = response.code or -1337
 		local isOk = responseCode >= 200 and responseCode <= 399
+		local isResponseJson, errOrJson = pcall(function()
+			if typeof(response.json) == "table" then
+				return response.json
+			else
+				return HttpService:JSONDecode(response.json)
+			end
+		end)
 
 		pendingRequest.responseReceivedSignal:Fire({
 			Success = isOk,
 			StatusCode = responseCode,
-			Body = if isOk and response.json then response.json else response,
+			Body = if isOk and isResponseJson then errOrJson else response,
 		})
 	end
 
@@ -236,7 +233,7 @@ task.spawn(function()
 		local success, err = pcall(function()
 			dispatchRequests()
 		end)
-		if not success then
+		if not success and err then
 			logger.warn(`error while dispatching requests: {err}`)
 		end
 	end
@@ -248,10 +245,7 @@ game:BindToClose(function()
 	while true do
 		dispatchRequests()
 
-		if
-			(dispatchJobsActive == 0 and #requestQueue == 0)
-			or not credentials.areCredentialsLoaded()
-		then
+		if (dispatchJobsActive == 0 and #requestQueue == 0) or not credentials.areCredentialsLoaded() then
 			break
 		else
 			wait(1)
