@@ -6,6 +6,13 @@ on:
     tags: ["v*"]
 
 jobs:
+  using: composite
+  steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+      with:
+        lfs: false
+        
   release:
     name: Release
     runs-on: ubuntu-latest
