@@ -19,6 +19,9 @@ jobs:
     name: Publish to Wally
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
