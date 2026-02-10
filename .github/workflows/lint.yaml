@@ -17,8 +17,8 @@ jobs:
         with:
           lfs: true
 
-      - name: Install Rokit
-        uses: ./.github/actions/setup-rokit
+      - name: Setup Aftman tools
+        uses: ok-nick/setup-aftman@v0.4.2
         with:
           cache: true
 

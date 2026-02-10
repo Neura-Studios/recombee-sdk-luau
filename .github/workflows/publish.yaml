@@ -22,23 +22,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          generate_release_notes: true
-
       - name: Install Rokit
         uses: ./.github/actions/setup-rokit
         with:
           cache: true
+          token: ${{ secrets.WALLY_GITHUB_TOKEN }}
 
-      - name: Login to Wally
-        run: |
-          mkdir -p ~/.wally
-          cat > ~/.wally/auth.toml << 'EOF'
-          [tokens]
-          "https://api.wally.run/" = "Bearer ${{ secrets.WALLY_API_TOKEN }}"
-          EOF
-          
       - name: Upload to Wally
         run: wally publish
