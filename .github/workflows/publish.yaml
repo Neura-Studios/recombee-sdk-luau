@@ -35,7 +35,10 @@ jobs:
       - name: Login to Wally
         run: |
           mkdir -p ~/.wally
-          printf '[registry."https://github.com/UpliftGames/wally-index"]\ntoken = "Bearer ${{ secrets.WALLY_API_TOKEN }}"' > ~/.wally/auth.toml
-
+          cat > ~/.wally/auth.toml << 'EOF'
+          [tokens]
+          "https://api.wally.run/" = "Bearer ${{ secrets.WALLY_API_TOKEN }}"
+          EOF
+          
       - name: Upload to Wally
         run: wally publish
