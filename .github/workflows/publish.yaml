@@ -24,8 +24,8 @@ jobs:
         with:
           generate_release_notes: true
 
-      - name: Setup Aftman tools
-        uses: ok-nick/setup-aftman@v0.4.2
+      - name: Install Rokit
+        uses: ./.github/actions/setup-rokit
         with:
           cache: true
 
