@@ -10,13 +10,17 @@ require(script.dispatcher)
 
 return {
 	AddBookmark = require(requests.addBookmark),
+	AddCartAddition = require(requests.addCartAddition),
 	AddItem = require(requests.addItem),
 	AddPurchase = require(requests.addPurchase),
 	AddRating = require(requests.addRating),
 	DeleteBookmark = require(requests.deleteBookmark),
+	DeleteCartAddition = require(requests.deleteCartAddition),
 	DeleteItem = require(requests.deleteItem),
 	DeleteRating = require(requests.deleteRating),
 	GetItemValues = require(requests.getItemValues),
+	ListItemCartAdditions = require(requests.listItemCartAdditions),
+	ListUserCartAdditions = require(requests.listUserCartAdditions),
 	ListUsers = require(requests.listUsers),
 	RecommendItemsToItem = require(requests.recommendItemsToItem),
 	RecommendItemsToUser = require(requests.recommendItemsToUser),
