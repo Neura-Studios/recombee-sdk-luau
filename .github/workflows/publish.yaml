@@ -30,7 +30,8 @@ jobs:
       - name: Login to Wally
         run: |
           mkdir -p ~/.wally
-          printf '[tokens]\n"https://api.wally.run/" = "%s"\n' '${{ secrets.WALLY_AUTH_TOKEN }}' > ~/.wally/auth.toml
+          echo '[tokens]' > ~/.wally/auth.toml
+          echo '"https://api.wally.run/" = "${{ secrets.WALLY_AUTH_TOKEN }}"' >> ~/.wally/auth.toml
 
-      - name: Upload to Wally
-        run: wally publish
+      - name: Debug auth
+        run: cat -A ~/.wally/auth.toml | sed 's/gho_[^ "]*/REDACTED/g'
