@@ -33,8 +33,5 @@ jobs:
           echo '[tokens]' > ~/.wally/auth.toml
           echo '"https://api.wally.run/" = "${{ secrets.WALLY_GITHUB_TOKEN }}"' >> ~/.wally/auth.toml
 
-      - name: Debug auth
-        run: cat -A ~/.wally/auth.toml | sed 's/gho_[^ "]*/REDACTED/g'
-
       - name: Upload to Wally
         run: wally publish
