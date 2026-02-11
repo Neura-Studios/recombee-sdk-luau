@@ -10,6 +10,7 @@ local AddCartAdditionRequestType = gt.build(gt.table({
 	amount = gt.optional(gt.number()),
 	price = gt.optional(gt.number()),
 	recommId = gt.optional(Types.RecommendationId),
+	additionalData = gt.optional(gt.dictionary(gt.string(), gt.any())),
 }))
 
 return function(body: typeof(AddCartAdditionRequestType:type()))
