@@ -35,3 +35,6 @@ jobs:
 
       - name: Debug auth
         run: cat -A ~/.wally/auth.toml | sed 's/gho_[^ "]*/REDACTED/g'
+
+      - name: Upload to Wally
+        run: wally publish
