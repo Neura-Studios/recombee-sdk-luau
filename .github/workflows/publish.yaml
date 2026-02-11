@@ -19,15 +19,14 @@ jobs:
     name: Publish to Wally
     runs-on: ubuntu-latest
     steps:
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          generate_release_notes: true
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - name: Setup Aftman tools
-        uses: ok-nick/setup-aftman@v0.4.2
+      - name: Install Rokit
+        uses: ./.github/actions/setup-rokit
         with:
           cache: true
+          token: ${{ secrets.WALLY_GITHUB_TOKEN }}
 
       - name: Upload to Wally
-        run: wally publish
+        run: wally publish --token ${{ secrets.WALLY_GITHUB_TOKEN }}
