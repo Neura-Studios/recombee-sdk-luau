@@ -26,7 +26,11 @@ jobs:
         uses: ./.github/actions/setup-rokit
         with:
           cache: true
-          token: ${{ secrets.WALLY_GITHUB_TOKEN }}
+
+      - name: Login to Wally
+        run: |
+          mkdir -p ~/.wally
+          echo '${{ secrets.WALLY_AUTH_TOKEN }}' > ~/.wally/auth.toml
 
       - name: Upload to Wally
         run: wally publish
