@@ -13,8 +13,8 @@ version = "0.4.9"
 dependencies = []
 
 [[package]]
-name = "neura-studios/recombee-lua-sdk"
-version = "1.0.0"
+name = "neura-studios/recombee-luau-sdk"
+version = "1.1.1"
 dependencies = [["HashLib", "boatbomber/hashlib@1.0.0"], ["Signal", "sleitnick/signal@2.0.1"], ["gt", "corecii/greentea@0.4.9"]]
 
 [[package]]
