@@ -8,6 +8,7 @@ local SetViewPortionRequestType = gt.build(gt.table({
 	portion = gt.number({
 		range = {
 			min = 0,
+			max = math.huge,
 		},
 	}),
 	timestamp = gt.optional(Types.DateTime),
