@@ -11,6 +11,7 @@ require(script.dispatcher)
 return {
 	AddBookmark = require(requests.addBookmark),
 	AddCartAddition = require(requests.addCartAddition),
+	AddDetailView = require(requests.addDetailView),
 	AddItem = require(requests.addItem),
 	AddPurchase = require(requests.addPurchase),
 	AddRating = require(requests.addRating),
