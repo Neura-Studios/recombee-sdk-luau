@@ -8,6 +8,7 @@ local AddBookmarkRequestType = gt.build(gt.table({
 	timestamp = gt.optional(Types.DateTime),
 	cascadeCreate = gt.optional(gt.boolean()),
 	recommId = gt.optional(Types.RecommendationId),
+	additionalData = gt.optional(gt.dictionary(gt.string(), gt.any())),
 }))
 
 return function(body: typeof(AddBookmarkRequestType:type()))
